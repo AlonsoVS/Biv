@@ -1,9 +1,7 @@
 package com.av.biv.persintance.mapper;
 
 import com.av.biv.domain.Note;
-import com.av.biv.domain.Travel;
 import com.av.biv.persintance.entity.NoteEntity;
-import com.av.biv.persintance.entity.TravelEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 
