@@ -16,28 +16,28 @@ public class UserService {
 
   public List<User> getAll() {
     return userRepository.getAll();
-  };
+  }
 
   public Optional<User> getUser(int userId) {
     return userRepository.getUser(userId);
-  };
+  }
 
   public Optional<List<User>> getByName(String name) {
     return userRepository.getByName(name);
-  };
+  }
 
   public Optional<User> getByEmail(String email) {
     return userRepository.getByEmail(email);
-  };
+  }
 
   public User save(User user) {
     return userRepository.save(user);
-  };
+  }
 
   public boolean delete(int userId) {
     return getUser(userId).map(user -> {
       userRepository.delete(userId);
       return true;
     }).orElse(false);
-  };
+  }
 }
