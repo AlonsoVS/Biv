@@ -9,20 +9,20 @@ public class NoteEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  int id;
+  Integer id;
 
   @Column(name = "user_id")
-  int userId;
+  Integer userId;
 
   @Column(name = "entity_id")
-  int entityId;
+  Integer entityId;
 
   String content;
 
   @Column(name = "create_date")
   Date createDate;
 
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 
@@ -30,7 +30,7 @@ public class NoteEntity {
     this.id = id;
   }
 
-  public int getUserId() {
+  public Integer getUserId() {
     return userId;
   }
 
@@ -38,7 +38,7 @@ public class NoteEntity {
     this.userId = userId;
   }
 
-  public int getEntityId() {
+  public Integer getEntityId() {
     return entityId;
   }
 

@@ -26,7 +26,7 @@ public class NoteService {
     return noteRepository.getUserNotes(userId);
   }
 
-  public Optional<Note> getEntityNotes(int entityId) {
+  public Optional<List<Note>> getEntityNotes(int entityId) {
     return noteRepository.getEntityNotes(entityId);
   }
 
