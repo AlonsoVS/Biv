@@ -2,17 +2,17 @@ package com.av.biv.domain;
 
 public class Travel {
 
-  private Integer id;
+  private int id;
 
-  private Integer userId;
+  private int userId;
 
   private String generalLocation;
 
   private String description;
 
-  private Boolean status;
+  private boolean status;
 
-  public Integer getId() {
+  public int getId() {
     return id;
   }
 
@@ -20,7 +20,7 @@ public class Travel {
     this.id = id;
   }
 
-  public Integer getUserId() {
+  public int getUserId() {
     return userId;
   }
 
@@ -44,7 +44,7 @@ public class Travel {
     this.description = description;
   }
 
-  public Boolean getStatus() {
+  public boolean getStatus() {
     return status;
   }
 
