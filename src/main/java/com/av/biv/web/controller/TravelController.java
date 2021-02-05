@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/travels")
@@ -19,5 +20,10 @@ public class TravelController {
   @GetMapping("/all/{id}")
   public List<Travel> getUserTravels(@PathVariable("id") int userId) {
     return travelService.getUserTravels(userId);
+  }
+
+  @GetMapping("/{id}")
+  public Optional<Travel> getTravel(@PathVariable("id") int travelId){
+    return travelService.getTravel(travelId);
   }
 }
