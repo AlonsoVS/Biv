@@ -28,4 +28,9 @@ public class TravelController {
   public Travel save(@RequestBody Travel travel) {
     return travelService.save(travel);
   }
+
+  @PostMapping("/delete/{id}")
+  public boolean delete(@PathVariable("id") int travelId) {
+    return travelService.delete(travelId);
+  }
 }
