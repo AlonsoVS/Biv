@@ -27,7 +27,7 @@ public class UserEntity {
   private Date birthDate;
 
   @OneToMany(mappedBy = "user")
-  private List<TravelEntity> userTravels;
+  private List<TravelEntity> travels;
 
   public Integer getId() {
     return id;
@@ -85,11 +85,11 @@ public class UserEntity {
     this.birthDate = birthDate;
   }
 
-  public List<TravelEntity> getUserTravels() {
-    return userTravels;
+  public List<TravelEntity> getTravels() {
+    return travels;
   }
 
-  public void setUserTravels(List<TravelEntity> userTravels) {
-    this.userTravels = userTravels;
+  public void setTravels(List<TravelEntity> travels) {
+    this.travels = travels;
   }
 }

@@ -12,7 +12,7 @@ public class User {
   private String password;
   private Date birthDate;
 
-  private List<Travel> userTravels;
+  private List<Travel> travels;
 
   public String getName() {
     return name;
@@ -70,11 +70,11 @@ public class User {
     this.birthDate = birthDate;
   }
 
-  public List<Travel> getUserTravels() {
-    return userTravels;
+  public List<Travel> getTravels() {
+    return travels;
   }
 
-  public void setUserTravels(List<Travel> userTravels) {
-    this.userTravels = userTravels;
+  public void setTravels(List<Travel> travels) {
+    this.travels = travels;
   }
 }
