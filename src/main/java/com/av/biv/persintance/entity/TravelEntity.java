@@ -20,6 +20,10 @@ public class TravelEntity {
 
   private Boolean status;
 
+  @ManyToOne
+  @JoinColumn(name = "user_id", insertable = false, updatable = false)
+  private UserEntity user;
+
   public Integer getId() {
     return id;
   }
@@ -58,5 +62,13 @@ public class TravelEntity {
 
   public void setStatus(Boolean status) {
     this.status = status;
+  }
+
+  public UserEntity getUser() {
+    return user;
+  }
+
+  public void setUser(UserEntity user) {
+    this.user = user;
   }
 }

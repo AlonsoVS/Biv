@@ -1,6 +1,7 @@
 package com.av.biv.domain;
 
 import java.sql.Date;
+import java.util.List;
 
 public class User {
   private String name;
@@ -10,6 +11,8 @@ public class User {
   private String lastName;
   private String password;
   private Date birthDate;
+
+  private List<Travel> userTravels;
 
   public String getName() {
     return name;
@@ -65,5 +68,13 @@ public class User {
 
   public void setBirthDate(Date birthDate) {
     this.birthDate = birthDate;
+  }
+
+  public List<Travel> getUserTravels() {
+    return userTravels;
+  }
+
+  public void setUserTravels(List<Travel> userTravels) {
+    this.userTravels = userTravels;
   }
 }

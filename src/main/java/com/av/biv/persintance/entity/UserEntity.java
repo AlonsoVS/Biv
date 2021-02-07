@@ -2,6 +2,7 @@ package com.av.biv.persintance.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -24,6 +25,9 @@ public class UserEntity {
 
   @Column(name = "birthdate")
   private Date birthDate;
+
+  @OneToMany(mappedBy = "user")
+  private List<TravelEntity> userTravels;
 
   public Integer getId() {
     return id;
@@ -79,5 +83,13 @@ public class UserEntity {
 
   public void setBirthDate(Date birthDate) {
     this.birthDate = birthDate;
+  }
+
+  public List<TravelEntity> getUserTravels() {
+    return userTravels;
+  }
+
+  public void setUserTravels(List<TravelEntity> userTravels) {
+    this.userTravels = userTravels;
   }
 }
