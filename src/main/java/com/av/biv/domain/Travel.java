@@ -1,5 +1,7 @@
 package com.av.biv.domain;
 
+import java.util.List;
+
 public class Travel {
 
   private int id;
@@ -11,6 +13,8 @@ public class Travel {
   private String description;
 
   private boolean status;
+
+  private List<TravelLocation> locations;
 
   public int getId() {
     return id;
@@ -50,5 +54,13 @@ public class Travel {
 
   public void setStatus(Boolean status) {
     this.status = status;
+  }
+
+  public List<TravelLocation> getLocations() {
+    return locations;
+  }
+
+  public void setLocations(List<TravelLocation> locations) {
+    this.locations = locations;
   }
 }

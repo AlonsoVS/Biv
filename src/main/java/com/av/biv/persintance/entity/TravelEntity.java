@@ -1,6 +1,7 @@
 package com.av.biv.persintance.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "travels")
@@ -23,6 +24,9 @@ public class TravelEntity {
   @ManyToOne
   @JoinColumn(name = "user_id", insertable = false, updatable = false)
   private UserEntity user;
+
+  @OneToMany(mappedBy = "travel")
+  private List<TravelLocationEntity> locations;
 
   public Integer getId() {
     return id;
@@ -70,5 +74,13 @@ public class TravelEntity {
 
   public void setUser(UserEntity user) {
     this.user = user;
+  }
+
+  public List<TravelLocationEntity> getLocations() {
+    return locations;
+  }
+
+  public void setLocations(List<TravelLocationEntity> locations) {
+    this.locations = locations;
   }
 }

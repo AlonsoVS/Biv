@@ -31,6 +31,10 @@ public class TravelLocationEntity {
 
   private boolean state;
 
+  @ManyToOne
+  @JoinColumn(name = "travel_id", insertable = false, updatable = false)
+  private TravelEntity travel;
+
   public int getId() {
     return id;
   }
@@ -93,5 +97,13 @@ public class TravelLocationEntity {
 
   public void setAddress(String address) {
     this.address = address;
+  }
+
+  public TravelEntity getTravel() {
+    return travel;
+  }
+
+  public void setTravel(TravelEntity travel) {
+    this.travel = travel;
   }
 }
