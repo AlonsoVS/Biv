@@ -41,8 +41,8 @@ public class TravelLocationRepository implements com.av.biv.domain.repository.Tr
   }
 
   @Override
-  public Optional<List<TravelLocation>> getByState(Boolean state) {
-    return travelLocationCrudRepository.findByState(state).map(locations -> travelLocationMapper.toTravelLocations(locations));
+  public Optional<List<TravelLocation>> getByStatus(Boolean state) {
+    return travelLocationCrudRepository.findByStatus(state).map(locations -> travelLocationMapper.toTravelLocations(locations));
   }
 
   @Override
@@ -58,11 +58,6 @@ public class TravelLocationRepository implements com.av.biv.domain.repository.Tr
   @Override
   public Optional<TravelLocation> getByAddress(String address) {
     return travelLocationCrudRepository.findByAddress(address).map(location -> travelLocationMapper.toTravelLocation(location));
-  }
-
-  @Override
-  public Optional<TravelLocation> getByLocationId(int locationId) {
-    return travelLocationCrudRepository.findByLocationId(locationId).map(location -> travelLocationMapper.toTravelLocation(location));
   }
 
   @Override

@@ -4,11 +4,11 @@ import java.sql.Date;
 import java.util.List;
 
 public class User {
-  private String name;
   private int id;
-  private String email;
-  private String username;
+  private String name;
   private String lastName;
+  private String username;
+  private String email;
   private String password;
   private Date birthDate;
 

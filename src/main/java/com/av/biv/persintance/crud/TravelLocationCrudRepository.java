@@ -11,9 +11,8 @@ import java.util.Optional;
 public interface TravelLocationCrudRepository extends CrudRepository<TravelLocationEntity, Integer> {
   Optional<List<TravelLocationEntity>> findByTravelId(Integer travelId);
   Optional<List<TravelLocationEntity>> findByUserId(int userId);
-  Optional<List<TravelLocationEntity>> findByState(Boolean state);
+  Optional<List<TravelLocationEntity>> findByStatus(Boolean state);
   Optional<TravelLocationEntity> findByEntryDate(Date entryDate);
   Optional<TravelLocationEntity> findByDepartureDate(Date departureDate);
   Optional<TravelLocationEntity> findByAddress(String address);
-  Optional<TravelLocationEntity> findByLocationId(int locationId);
 }

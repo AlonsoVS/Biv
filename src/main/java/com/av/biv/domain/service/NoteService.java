@@ -26,8 +26,8 @@ public class NoteService {
     return noteRepository.getUserNotes(userId);
   }
 
-  public Optional<List<Note>> getEntityNotes(int entityId) {
-    return noteRepository.getEntityNotes(entityId);
+  public Optional<List<Note>> getTargetNotes(int entityId) {
+    return noteRepository.getTargetNotes(entityId);
   }
 
   public Optional<List<Note>> getNotesByDate(Date createDate) {

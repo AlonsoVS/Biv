@@ -34,8 +34,8 @@ public class NoteRepository implements com.av.biv.domain.repository.NoteReposito
   }
 
   @Override
-  public Optional<List<Note>> getEntityNotes(int entityId) {
-    return noteCrudRepository.findByEntityId(entityId).map(notes -> noteMapper.toNotes(notes));
+  public Optional<List<Note>> getTargetNotes(int entityId) {
+    return noteCrudRepository.findByTargetId(entityId).map(notes -> noteMapper.toNotes(notes));
   }
 
   @Override

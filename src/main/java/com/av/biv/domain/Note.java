@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Note {
   int id;
   int userId;
-  int entityId;
+  int targetId;
   String content;
   Date createDate;
 
@@ -25,12 +25,12 @@ public class Note {
     this.userId = userId;
   }
 
-  public int getEntityId() {
-    return entityId;
+  public int getTargetId() {
+    return targetId;
   }
 
-  public void setEntityId(int entityId) {
-    this.entityId = entityId;
+  public void setTargetId(int targetId) {
+    this.targetId = targetId;
   }
 
   public String getContent() {

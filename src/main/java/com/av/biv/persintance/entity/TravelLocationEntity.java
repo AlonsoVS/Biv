@@ -12,6 +12,8 @@ public class TravelLocationEntity {
   @Column(name = "id")
   private int id;
 
+  private String name;
+
   @Column(name = "travel_id")
   private int travelId;
 
@@ -24,12 +26,9 @@ public class TravelLocationEntity {
   @Column(name = "departure_date")
   private Date departureDate;
 
-  @Column(name = "location_id")
-  private int locationId;
-
   private String address;
 
-  private boolean state;
+  private boolean status;
 
   @ManyToOne
   @JoinColumn(name = "travel_id", insertable = false, updatable = false)
@@ -43,12 +42,12 @@ public class TravelLocationEntity {
     this.id = id;
   }
 
-  public boolean isState() {
-    return state;
+  public boolean isStatus() {
+    return status;
   }
 
-  public void setState(boolean state) {
-    this.state = state;
+  public void setStatus(boolean status) {
+    this.status = status;
   }
 
   public Date getEntryDate() {
@@ -83,14 +82,6 @@ public class TravelLocationEntity {
     this.userId = userId;
   }
 
-  public int getLocationId() {
-    return locationId;
-  }
-
-  public void setLocationId(int locationId) {
-    this.locationId = locationId;
-  }
-
   public String getAddress() {
     return address;
   }
@@ -105,5 +96,13 @@ public class TravelLocationEntity {
 
   public void setTravel(TravelEntity travel) {
     this.travel = travel;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 }

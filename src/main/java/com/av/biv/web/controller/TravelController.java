@@ -14,7 +14,7 @@ public class TravelController {
   @Autowired
   private TravelService travelService;
 
-  @GetMapping("/all/{id}")
+  @GetMapping("/user/{id}")
   public List<Travel> getUserTravels(@PathVariable("id") int userId) {
     return travelService.getUserTravels(userId);
   }

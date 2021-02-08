@@ -5,13 +5,13 @@ import java.sql.Date;
 public class TravelLocation {
 
   private int id;
+  private String name;
   private Date entryDate;
   private Date departureDate;
   private int travelId;
   private int userId;
-  private int locationId;
   private String address;
-  private boolean state;
+  private boolean status;
 
   public int getId() {
     return id;
@@ -21,12 +21,12 @@ public class TravelLocation {
     this.id = id;
   }
 
-  public boolean isState() {
-    return state;
+  public boolean isStatus() {
+    return status;
   }
 
-  public void setState(boolean state) {
-    this.state = state;
+  public void setStatus(boolean status) {
+    this.status = status;
   }
 
   public Date getEntryDate() {
@@ -61,19 +61,19 @@ public class TravelLocation {
     this.userId = userId;
   }
 
-  public int getLocationId() {
-    return locationId;
-  }
-
-  public void setLocationId(int locationId) {
-    this.locationId = locationId;
-  }
-
   public String getAddress() {
     return address;
   }
 
   public void setAddress(String address) {
     this.address = address;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 }

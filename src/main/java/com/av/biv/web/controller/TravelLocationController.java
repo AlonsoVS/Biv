@@ -60,11 +60,6 @@ public class TravelLocationController {
     return locationService.getByAddress(address);
   }
 
-  @GetMapping("/location/{id}")
-  public Optional<TravelLocation> getByLocationId(@PathVariable("id") int locationId) {
-    return locationService.getByLocationId(locationId);
-  }
-
   @PostMapping("/save")
   public TravelLocation save(@RequestBody TravelLocation travelLocation) {
     return locationService.save(travelLocation);

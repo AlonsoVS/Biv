@@ -31,11 +31,11 @@ public class TravelLocationService {
   }
 
   public Optional<List<TravelLocation>> getActived() {
-    return locationRepository.getByState(true);
+    return locationRepository.getByStatus(true);
   }
 
   public Optional<List<TravelLocation>> getDisabled() {
-    return locationRepository.getByState(false);
+    return locationRepository.getByStatus(false);
   }
 
   public Optional<TravelLocation> getByEntryDate(Date entryDate) {
@@ -48,10 +48,6 @@ public class TravelLocationService {
 
   public Optional<TravelLocation> getByAddress(String address) {
     return locationRepository.getByAddress(address);
-  }
-
-  public Optional<TravelLocation> getByLocationId(int locationId) {
-    return locationRepository.getByLocationId(locationId);
   }
 
   public TravelLocation save(TravelLocation travelLocation) {

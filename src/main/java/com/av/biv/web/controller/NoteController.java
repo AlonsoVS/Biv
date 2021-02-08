@@ -30,9 +30,9 @@ public class NoteController {
     return noteService.getUserNotes(userId);
   }
 
-  @GetMapping("/entity/{id}")
-  public Optional<List<Note>> getEntityNotes(@PathVariable("id") int entityId) {
-    return noteService.getEntityNotes(entityId);
+  @GetMapping("/target/{id}")
+  public Optional<List<Note>> getTargetNotes(@PathVariable("id") int entityId) {
+    return noteService.getTargetNotes(entityId);
   }
 
   @GetMapping("/date/{date}")

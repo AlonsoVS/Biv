@@ -14,8 +14,8 @@ public class NoteEntity {
   @Column(name = "user_id")
   Integer userId;
 
-  @Column(name = "entity_id")
-  Integer entityId;
+  @Column(name = "target_id")
+  Integer targetId;
 
   String content;
 
@@ -38,12 +38,12 @@ public class NoteEntity {
     this.userId = userId;
   }
 
-  public Integer getEntityId() {
-    return entityId;
+  public Integer getTargetId() {
+    return targetId;
   }
 
-  public void setEntityId(int entityId) {
-    this.entityId = entityId;
+  public void setTargetId(int targetId) {
+    this.targetId = targetId;
   }
 
   public String getContent() {

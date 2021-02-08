@@ -9,6 +9,6 @@ import java.util.Optional;
 
 public interface NoteCrudRepository extends CrudRepository<NoteEntity, Integer> {
   Optional<List<NoteEntity>> findByUserId(int userId);
-  Optional<List<NoteEntity>> findByEntityId(int entityId);
+  Optional<List<NoteEntity>> findByTargetId(int entityId);
   Optional<List<NoteEntity>> findByCreateDate(Date createDate);
 }

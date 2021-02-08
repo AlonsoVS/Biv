@@ -10,7 +10,7 @@ public interface NoteRepository {
   List<Note> getAll();
   Optional<Note> getNote(int noteId);
   Optional<List<Note>> getUserNotes(int userId);
-  Optional<List<Note>> getEntityNotes(int entityId);
+  Optional<List<Note>> getTargetNotes(int entityId);
   Optional<List<Note>> getNotesByDate(Date createDate);
   Note save(Note note);
   void delete(int noteId);
