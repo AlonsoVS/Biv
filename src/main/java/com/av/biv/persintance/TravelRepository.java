@@ -19,6 +19,11 @@ public class TravelRepository implements com.av.biv.domain.repository.TravelRepo
   private TravelCrudRepository travelCrudRepository;
 
   @Override
+  public List<Travel> getAll() {
+    return travelMapper.toTravels((List<TravelEntity>) travelCrudRepository.findAll());
+  }
+
+  @Override
   public List<Travel> getUserTravels(int userId) {
     List<TravelEntity> userTravels = travelCrudRepository.findByUserId(userId);
     return travelMapper.toTravels(userTravels);

@@ -14,6 +14,10 @@ public class TravelService {
   @Autowired
   private TravelRepository travelRepository;
 
+  public List<Travel> getAll() {
+    return travelRepository.getAll();
+  };
+
   public List<Travel> getUserTravels(Integer userId) {
     return travelRepository.getUserTravels(userId);
   }
