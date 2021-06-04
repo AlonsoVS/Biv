@@ -14,6 +14,9 @@ public class TravelService {
   @Autowired
   private TravelRepository travelRepository;
 
+  @Autowired
+  private UserService userService;
+
   public List<Travel> getAll() {
     return travelRepository.getAll();
   };
@@ -28,6 +31,15 @@ public class TravelService {
 
   public Travel save(Travel travel) {
     return travelRepository.save(travel);
+  }
+
+  public Optional<Travel> update(Travel travelModified) {
+    boolean travelFound = travelRepository.getTravel(travelModified.getId()).map(User -> true).orElse(false);
+    boolean userFound = userService.getUser(travelModified.getUserId()).map(User -> true).orElse(false);
+    if (travelFound && userFound) {
+      return Optional.ofNullable(travelRepository.save(travelModified));
+    }
+    return Optional.empty();
   }
 
   public boolean delete(int travelId) {

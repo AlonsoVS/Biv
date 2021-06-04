@@ -34,6 +34,11 @@ public class TravelController {
     return travelService.save(travel);
   }
 
+  @PostMapping("/update")
+  public Optional<Travel> update(@RequestBody Travel travelModified) {
+    return travelService.update(travelModified);
+  }
+
   @PostMapping("/delete/{id}")
   public boolean delete(@PathVariable("id") int travelId) {
     return travelService.delete(travelId);
