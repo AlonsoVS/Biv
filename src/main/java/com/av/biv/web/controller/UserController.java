@@ -43,6 +43,12 @@ public class UserController {
     return new ResponseEntity<>(userService.save(user), HttpStatus.CREATED);
   };
 
+  @PostMapping("/update")
+  public ResponseEntity<User> update(@RequestBody User userModified) {
+    return userService.update(userModified).map(userUpdated -> new ResponseEntity(userUpdated, HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_MODIFIED));
+  };
+
   @PostMapping("/delete/{id}")
   public ResponseEntity delete(@PathVariable("id") int userId) {
     if (userService.delete(userId)) {
