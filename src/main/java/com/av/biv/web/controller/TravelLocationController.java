@@ -35,22 +35,22 @@ public class TravelLocationController {
     return locationService.getLocation(locationId);
   }
 
-  @GetMapping("/state/actived")
+  @GetMapping("/status/actived")
   public Optional<List<TravelLocation>> getActived() {
     return locationService.getActived();
   }
 
-  @GetMapping("/state/disabled")
+  @GetMapping("/status/disabled")
   public Optional<List<TravelLocation>> getDisabled() {
     return locationService.getDisabled();
   }
 
-  @GetMapping("/entry/{date}")
+  @GetMapping("/entry_date/{date}")
   public Optional<TravelLocation> getByEntryDate(@PathVariable("date") Date entryDate) {
     return locationService.getByEntryDate(entryDate);
   }
 
-  @GetMapping("/departure/{date}")
+  @GetMapping("/departure_date")
   public Optional<TravelLocation> getByDepartureDate(@PathVariable("date") Date departureDate) {
     return locationService.getByDepartureDate(departureDate);
   }
@@ -64,6 +64,11 @@ public class TravelLocationController {
   public TravelLocation save(@RequestBody TravelLocation travelLocation) {
     return locationService.save(travelLocation);
   }
+
+  @PostMapping("/update")
+  public Optional<TravelLocation> update(@RequestBody TravelLocation locationModified) {
+    return locationService.update(locationModified);
+  };
 
   @PostMapping("/delete/{id}")
   public boolean delete(@PathVariable("id") int locationId) {

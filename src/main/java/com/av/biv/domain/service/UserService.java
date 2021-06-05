@@ -34,6 +34,14 @@ public class UserService {
     return userRepository.save(user);
   }
 
+  public Optional<User> update(User userModified) {
+    boolean userFound = userRepository.getUser(userModified.getId()).map(User -> true).orElse(false);
+    if (userFound) {
+      return Optional.ofNullable(userRepository.save(userModified));
+    }
+    return  Optional.empty();
+  }
+
   public boolean delete(int userId) {
     return getUser(userId).map(user -> {
       userRepository.delete(userId);

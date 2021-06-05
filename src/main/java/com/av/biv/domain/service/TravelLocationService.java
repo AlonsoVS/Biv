@@ -14,6 +14,12 @@ public class TravelLocationService {
   @Autowired
   private TravelLocationRepository locationRepository;
 
+  @Autowired
+  private TravelService travelService;
+
+  @Autowired
+  private UserService userService;
+
   public List<TravelLocation> getAll() {
     return locationRepository.getAll();
   }
@@ -52,6 +58,19 @@ public class TravelLocationService {
 
   public TravelLocation save(TravelLocation travelLocation) {
     return locationRepository.save(travelLocation);
+  }
+
+  public Optional<TravelLocation> update(TravelLocation locationModified) {
+    boolean locationFound = locationRepository.getLocation(locationModified.getId())
+            .map(location -> {
+              if (location.getUserId() == locationModified.getUserId() && location.getTravelId() == locationModified.getTravelId()) return true;
+              return false;
+            })
+            .orElse(false);
+    if (locationFound) {
+      return Optional.ofNullable(locationRepository.save(locationModified));
+    }
+    return Optional.empty();
   }
 
   public boolean delete(int locationId) {

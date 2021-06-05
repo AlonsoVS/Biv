@@ -20,7 +20,7 @@ public class NoteEntity {
   String content;
 
   @Column(name = "create_date")
-  Date createDate;
+    Date createDate;
 
   public Integer getId() {
     return id;
