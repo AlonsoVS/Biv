@@ -38,6 +38,19 @@ public class NoteService {
     return noteRepository.save(note);
   }
 
+  public Optional<Note> update(Note noteModified) {
+    boolean noteFound = noteRepository.getNote(noteModified.getId())
+            .map(noteUpdated -> {
+              if (noteUpdated.getUserId() == noteModified.getUserId()) return true;
+              return false;
+            })
+            .orElse(false);
+    if (noteFound) {
+      return Optional.ofNullable(noteRepository.save(noteModified));
+    };
+    return Optional.empty();
+  }
+
   public boolean delete(int noteId) {
     return getNote(noteId).map(note -> {
       noteRepository.delete(noteId);

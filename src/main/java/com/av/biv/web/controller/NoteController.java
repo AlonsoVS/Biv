@@ -45,6 +45,11 @@ public class NoteController {
     return noteService.save(note);
   }
 
+  @PostMapping("/edit")
+  public Optional<Note> update(@RequestBody Note noteModified) {
+   return noteService.update(noteModified);
+  }
+
   @PostMapping("/delete/{id}")
   public boolean delete(@PathVariable("id") int noteId) {
     return noteService.delete(noteId);
