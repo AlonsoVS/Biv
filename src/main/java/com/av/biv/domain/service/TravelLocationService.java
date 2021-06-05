@@ -63,13 +63,12 @@ public class TravelLocationService {
   public Optional<TravelLocation> update(TravelLocation locationModified) {
     boolean locationFound = locationRepository.getLocation(locationModified.getId())
             .map(location -> {
-              if (location.getUserId() == locationModified.getUserId()) return true;
+              if (location.getUserId() == locationModified.getUserId() && location.getTravelId() == locationModified.getTravelId()) return true;
               return false;
             })
             .orElse(false);
-    boolean travelFound = travelService.getTravel(locationModified.getTravelId()).map(travel -> true).orElse(false);
-    if (locationFound && travelFound) {
-      return Optional.ofNullable(locationModified);
+    if (locationFound) {
+      return Optional.ofNullable(locationRepository.save(locationModified));
     }
     return Optional.empty();
   }
