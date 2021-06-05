@@ -34,9 +34,13 @@ public class TravelService {
   }
 
   public Optional<Travel> update(Travel travelModified) {
-    boolean travelFound = travelRepository.getTravel(travelModified.getId()).map(User -> true).orElse(false);
-    boolean userFound = userService.getUser(travelModified.getUserId()).map(User -> true).orElse(false);
-    if (travelFound && userFound) {
+    boolean travelFound = travelRepository.getTravel(travelModified.getId())
+            .map(userUpdated -> {
+              if (userUpdated.getUserId() == travelModified.getUserId()) return true;
+              return false;
+            })
+            .orElse(false);
+    if (travelFound) {
       return Optional.ofNullable(travelRepository.save(travelModified));
     }
     return Optional.empty();
