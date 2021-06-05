@@ -34,6 +34,10 @@ public class NoteService {
     return noteRepository.getNotesByDate(createDate);
   }
 
+  public Optional<List<Note>> getTargetTypeNotes(String targetType) {
+    return noteRepository.getNotesByTargetType(targetType);
+  }
+
   public Note save(Note note) {
     return noteRepository.save(note);
   }

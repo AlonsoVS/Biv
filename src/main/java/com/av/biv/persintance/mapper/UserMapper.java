@@ -5,13 +5,17 @@ import com.av.biv.persintance.entity.UserEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = TravelMapper.class)
+@Mapper(componentModel = "spring", uses = {TravelMapper.class, NoteMapper.class})
 public interface UserMapper {
 
-  @Mapping(source = "travels", target = "travels")
+  @Mappings({
+          @Mapping(source = "travels", target = "travels"),
+          @Mapping(source = "notes", target = "notes")
+  })
   User toUser(UserEntity user);
 
   List<User> toUsers(List<UserEntity> users);

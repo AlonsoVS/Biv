@@ -12,4 +12,5 @@ public interface NoteCrudRepository extends CrudRepository<NoteEntity, Integer> 
   Optional<List<NoteEntity>> findByTargetId(int entityId);
   Optional<List<NoteEntity>> findByCreateDate(Date createDate);
   Optional<List<NoteEntity>> findByTargetType(String entityType);
+  Optional<List<NoteEntity>> findByTargetTypeAndUserId(String entityType, int userId);
 }

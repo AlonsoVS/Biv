@@ -15,6 +15,8 @@ public class User {
 
   private List<Travel> travels;
 
+  private List<Note> notes;
+
   public String getName() {
     return name;
   }
@@ -85,5 +87,13 @@ public class User {
 
   public void setTravels(List<Travel> travels) {
     this.travels = travels;
+  }
+
+  public List<Note> getNotes() {
+    return notes;
+  }
+
+  public void setNotes(List<Note> notes) {
+    this.notes = notes;
   }
 }

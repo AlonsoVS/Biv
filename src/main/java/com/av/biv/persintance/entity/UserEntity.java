@@ -32,6 +32,9 @@ public class UserEntity {
   @OneToMany(mappedBy = "user")
   private List<TravelEntity> travels;
 
+  @OneToMany(mappedBy = "target")
+  private List<NoteEntity> notes;
+
   public Integer getId() {
     return id;
   }
@@ -102,5 +105,13 @@ public class UserEntity {
 
   public void setTravels(List<TravelEntity> travels) {
     this.travels = travels;
+  }
+
+  public List<NoteEntity> getNotes() {
+    return notes;
+  }
+
+  public void setNotes(List<NoteEntity> notes) {
+    this.notes = notes;
   }
 }
