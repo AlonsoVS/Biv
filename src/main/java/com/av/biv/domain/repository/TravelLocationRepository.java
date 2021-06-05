@@ -1,6 +1,7 @@
 package com.av.biv.domain.repository;
 
 import com.av.biv.domain.TravelLocation;
+import com.av.biv.persintance.entity.TravelLocationEntity;
 
 import java.sql.Date;
 import java.util.List;
@@ -15,6 +16,7 @@ public interface TravelLocationRepository {
   Optional<TravelLocation> getByEntryDate(Date entryDate);
   Optional<TravelLocation> getByDepartureDate(Date departureDate);
   Optional<TravelLocation> getByAddress(String address);
+  Optional<List<TravelLocation>> getByEntityType(String entityType);
   TravelLocation save(TravelLocation travelLocation);
   void delete(int travelLocationId);
 }

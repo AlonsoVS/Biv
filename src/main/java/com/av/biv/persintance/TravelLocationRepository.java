@@ -61,6 +61,11 @@ public class TravelLocationRepository implements com.av.biv.domain.repository.Tr
   }
 
   @Override
+  public Optional<List<TravelLocation>> getByEntityType(String entityType) {
+    return travelLocationCrudRepository.findByEntityType(entityType).map(locations -> travelLocationMapper.toTravelLocations(locations));
+  }
+
+  @Override
   public TravelLocation save(TravelLocation travelLocation) {
     TravelLocationEntity locationEntity = travelLocationMapper.toTravelLocationEntity(travelLocation);
     return travelLocationMapper.toTravelLocation(travelLocationCrudRepository.save(locationEntity));

@@ -12,6 +12,7 @@ public class TravelLocation {
   private int userId;
   private String address;
   private boolean status;
+  private String entityType;
 
   public int getId() {
     return id;
@@ -75,5 +76,13 @@ public class TravelLocation {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getEntityType() {
+    return entityType;
+  }
+
+  public void setEntityType(String entityType) {
+    this.entityType = entityType;
   }
 }

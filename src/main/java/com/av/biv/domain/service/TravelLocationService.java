@@ -56,6 +56,10 @@ public class TravelLocationService {
     return locationRepository.getByAddress(address);
   }
 
+  public Optional<List<TravelLocation>> getByEntityType(String entityType) {
+    return locationRepository.getByEntityType(entityType);
+  }
+
   public TravelLocation save(TravelLocation travelLocation) {
     return locationRepository.save(travelLocation);
   }

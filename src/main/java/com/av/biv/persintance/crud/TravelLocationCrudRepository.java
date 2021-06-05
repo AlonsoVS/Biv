@@ -1,6 +1,5 @@
 package com.av.biv.persintance.crud;
 
-import com.av.biv.domain.TravelLocation;
 import com.av.biv.persintance.entity.TravelLocationEntity;
 import org.springframework.data.repository.CrudRepository;
 
@@ -15,4 +14,5 @@ public interface TravelLocationCrudRepository extends CrudRepository<TravelLocat
   Optional<TravelLocationEntity> findByEntryDate(Date entryDate);
   Optional<TravelLocationEntity> findByDepartureDate(Date departureDate);
   Optional<TravelLocationEntity> findByAddress(String address);
+  Optional<List<TravelLocationEntity>> findByEntityType(String entityType);
 }

@@ -30,6 +30,9 @@ public class TravelLocationEntity {
 
   private boolean status;
 
+  @Column(name = "entity_type")
+  private String entityType;
+
   @ManyToOne
   @JoinColumn(name = "travel_id", insertable = false, updatable = false)
   private TravelEntity travel;
@@ -104,5 +107,13 @@ public class TravelLocationEntity {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getEntityType() {
+    return entityType;
+  }
+
+  public void setEntityType(String entityType) {
+    this.entityType = entityType;
   }
 }

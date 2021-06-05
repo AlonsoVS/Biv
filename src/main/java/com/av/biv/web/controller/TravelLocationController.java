@@ -60,6 +60,11 @@ public class TravelLocationController {
     return locationService.getByAddress(address);
   }
 
+  @GetMapping("/entity_type/{type}")
+  public Optional<List<TravelLocation>> getByEntityType(@PathVariable("type") String type) {
+    return locationService.getByEntityType(type);
+  }
+
   @PostMapping("/save")
   public TravelLocation save(@RequestBody TravelLocation travelLocation) {
     return locationService.save(travelLocation);
