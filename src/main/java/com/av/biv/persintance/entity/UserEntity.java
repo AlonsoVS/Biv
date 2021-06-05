@@ -1,13 +1,14 @@
 package com.av.biv.persintance.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name = "users")
-public class UserEntity {
+public class UserEntity implements Serializable {
   @PrePersist
   protected void onCreate() {
     setUuidId(java.util.UUID.randomUUID());

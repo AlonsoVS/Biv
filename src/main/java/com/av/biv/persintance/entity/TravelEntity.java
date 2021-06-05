@@ -2,6 +2,7 @@ package com.av.biv.persintance.entity;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "travels")
@@ -14,6 +15,9 @@ public class TravelEntity {
   @Column(name = "user_id")
   private Integer userId;
 
+  @Column(name = "user_uuid_id")
+  private UUID userUUIDId;
+
   @Column(name = "general_location")
   private String generalLocation;
 
@@ -22,7 +26,9 @@ public class TravelEntity {
   private Boolean status;
 
   @ManyToOne
-  @JoinColumn(name = "user_id", insertable = false, updatable = false)
+  @JoinColumns({
+          @JoinColumn(name = "user_uuid_id", referencedColumnName="uuid_id", insertable = false, updatable = false)
+  })
   private UserEntity user;
 
   @OneToMany(mappedBy = "travel")
@@ -42,6 +48,14 @@ public class TravelEntity {
 
   public void setUserId(Integer userId) {
     this.userId = userId;
+  }
+
+  public UUID getUserUUIDId() {
+    return userUUIDId;
+  }
+
+  public void setUserUUIDId(UUID userUUIDId) {
+    this.userUUIDId = userUUIDId;
   }
 
   public String getGeneralLocation() {

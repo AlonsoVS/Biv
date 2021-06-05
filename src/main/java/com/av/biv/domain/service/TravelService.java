@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class TravelService {
@@ -44,6 +45,10 @@ public class TravelService {
       return Optional.ofNullable(travelRepository.save(travelModified));
     }
     return Optional.empty();
+  }
+
+  public List<Travel> getTravelsByUserUUIDId(String userId) {
+    return travelRepository.getTravelsByUserUUIDid(UUID.fromString(userId));
   }
 
   public boolean delete(int travelId) {

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public class TravelRepository implements com.av.biv.domain.repository.TravelRepository {
@@ -27,6 +28,11 @@ public class TravelRepository implements com.av.biv.domain.repository.TravelRepo
   public List<Travel> getUserTravels(int userId) {
     List<TravelEntity> userTravels = travelCrudRepository.findByUserId(userId);
     return travelMapper.toTravels(userTravels);
+  }
+
+  @Override
+  public List<Travel> getTravelsByUserUUIDid(UUID userId) {
+    return travelMapper.toTravels(travelCrudRepository.findByUserUUIDId(userId));
   }
 
   @Override

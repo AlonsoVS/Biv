@@ -1,12 +1,15 @@
 package com.av.biv.domain;
 
 import java.util.List;
+import java.util.UUID;
 
 public class Travel {
 
   private int id;
 
   private int userId;
+
+  private UUID userUUIDId;
 
   private String generalLocation;
 
@@ -30,6 +33,14 @@ public class Travel {
 
   public void setUserId(Integer userId) {
     this.userId = userId;
+  }
+
+  public UUID getUserUUIDId() {
+    return userUUIDId;
+  }
+
+  public void setUserUUIDId(UUID userUUIDId) {
+    this.userUUIDId = userUUIDId;
   }
 
   public String getGeneralLocation() {

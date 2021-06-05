@@ -29,6 +29,11 @@ public class TravelController {
     return travelService.getTravel(travelId);
   }
 
+  @GetMapping("/uuid_id/{id}")
+  public List<Travel> getTravelsByUserUUIDId(@PathVariable("id") String id) {
+    return travelService.getTravelsByUserUUIDId(id);
+  }
+
   @PostMapping("/save")
   public Travel save(@RequestBody Travel travel) {
     return travelService.save(travel);
