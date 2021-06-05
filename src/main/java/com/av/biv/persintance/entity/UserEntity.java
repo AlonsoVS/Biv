@@ -3,14 +3,23 @@ package com.av.biv.persintance.entity;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "users")
 public class UserEntity {
+  @PrePersist
+  protected void onCreate() {
+    setUuidId(java.util.UUID.randomUUID());
+    setEntityType("user");
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
+
+  @Column(name = "uuid_id")
+  private UUID uuidId;
 
   private String name;
 
@@ -41,6 +50,14 @@ public class UserEntity {
 
   public void setId(Integer id) {
     this.id = id;
+  }
+
+  public UUID getUuidId() {
+    return uuidId;
+  }
+
+  public void setUuidId(UUID uuidId) {
+    this.uuidId = uuidId;
   }
 
   public String getName() {

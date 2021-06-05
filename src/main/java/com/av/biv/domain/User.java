@@ -2,9 +2,11 @@ package com.av.biv.domain;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.UUID;
 
 public class User {
   private int id;
+  private UUID uuidId;
   private String name;
   private String lastName;
   private String username;
@@ -47,6 +49,14 @@ public class User {
 
   public void setId(int id) {
     this.id = id;
+  }
+
+  public UUID getUuidId() {
+    return uuidId;
+  }
+
+  public void setUuidId(UUID uuidId) {
+    this.uuidId = uuidId;
   }
 
   public String getUsername() {

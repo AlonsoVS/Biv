@@ -26,6 +26,12 @@ public class UserController {
             .orElse(new ResponseEntity(HttpStatus.NOT_FOUND));
   };
 
+  @GetMapping("/uuid/{id}")
+  public ResponseEntity<User> getUserByUUID(@PathVariable("id") String userId) {
+    return userService.getUserByUUID(userId).map(user -> new ResponseEntity<>(user, HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+  }
+
   @GetMapping("/name/{name}")
   public ResponseEntity<List<User>> getByName(@PathVariable String name) {
     return userService.getByName(name).map(users -> new ResponseEntity(users, HttpStatus.OK))

@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface UserCrudRepository extends CrudRepository<UserEntity, Integer> {
 
@@ -13,4 +14,6 @@ public interface UserCrudRepository extends CrudRepository<UserEntity, Integer> 
   Optional<UserEntity> findByEmail(String email);
 
   Optional<UserEntity> findByEntityType(String entityType);
+
+  Optional<UserEntity> findByUuidId(UUID id);
 }

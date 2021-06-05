@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public class UserRepository implements com.av.biv.domain.repository.UserRepository {
@@ -27,6 +28,11 @@ public class UserRepository implements com.av.biv.domain.repository.UserReposito
   @Override
   public Optional<User> getUser(int userId) {
     return userCrudRepository.findById(userId).map(user -> userMapper.toUser(user));
+  }
+
+  @Override
+  public Optional<User> getUserByUUID(UUID id) {
+    return userCrudRepository.findByUuidId(id).map(user -> userMapper.toUser(user));
   }
 
   @Override
