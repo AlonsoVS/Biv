@@ -27,7 +27,7 @@ public class NoteEntity {
 
   @ManyToOne
   @JoinColumn(name = "user_id", referencedColumnName="id", insertable = false, updatable = false)
-  private UserEntity target;
+  private UserEntity user;
 
   public Integer getId() {
     return id;

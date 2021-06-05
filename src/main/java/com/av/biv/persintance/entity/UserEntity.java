@@ -42,7 +42,7 @@ public class UserEntity implements Serializable {
   @OneToMany(mappedBy = "user")
   private List<TravelEntity> travels;
 
-  @OneToMany(mappedBy = "target")
+  @OneToMany(mappedBy = "user")
   private List<NoteEntity> notes;
 
   public Integer getId() {
