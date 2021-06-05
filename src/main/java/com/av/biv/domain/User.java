@@ -11,6 +11,7 @@ public class User {
   private String email;
   private String password;
   private Date birthDate;
+  private String entityType;
 
   private List<Travel> travels;
 
@@ -68,6 +69,14 @@ public class User {
 
   public void setBirthDate(Date birthDate) {
     this.birthDate = birthDate;
+  }
+
+  public String getEntityType() {
+    return entityType;
+  }
+
+  public void setEntityType(String entityType) {
+    this.entityType = entityType;
   }
 
   public List<Travel> getTravels() {

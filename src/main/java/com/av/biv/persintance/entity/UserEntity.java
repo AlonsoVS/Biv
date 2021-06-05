@@ -26,6 +26,9 @@ public class UserEntity {
   @Column(name = "birthdate")
   private Date birthDate;
 
+  @Column(name = "entity_type")
+  private String entityType;
+
   @OneToMany(mappedBy = "user")
   private List<TravelEntity> travels;
 
@@ -87,6 +90,14 @@ public class UserEntity {
 
   public List<TravelEntity> getTravels() {
     return travels;
+  }
+
+  public String getEntityType() {
+    return entityType;
+  }
+
+  public void setEntityType(String entityType) {
+    this.entityType = entityType;
   }
 
   public void setTravels(List<TravelEntity> travels) {

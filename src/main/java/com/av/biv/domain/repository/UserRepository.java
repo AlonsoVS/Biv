@@ -14,6 +14,8 @@ public interface UserRepository {
 
   Optional<User> getByEmail(String email);
 
+  Optional<User> getByEntityType(String entityType);
+
   User save(User user);
 
   void delete(int userId);

@@ -41,6 +41,11 @@ public class UserRepository implements com.av.biv.domain.repository.UserReposito
   }
 
   @Override
+  public Optional<User> getByEntityType(String entityType) {
+    return userCrudRepository.findByEntityType(entityType).map(user -> userMapper.toUser(user));
+  }
+
+  @Override
   public User save(User user) {
     UserEntity savedUser = userMapper.toUserEntity(user);
     return userMapper.toUser(userCrudRepository.save(savedUser));

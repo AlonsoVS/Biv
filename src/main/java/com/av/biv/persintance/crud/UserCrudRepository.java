@@ -1,6 +1,5 @@
 package com.av.biv.persintance.crud;
 
-import com.av.biv.domain.User;
 import com.av.biv.persintance.entity.UserEntity;
 import org.springframework.data.repository.CrudRepository;
 
@@ -12,4 +11,6 @@ public interface UserCrudRepository extends CrudRepository<UserEntity, Integer> 
   Optional<List<UserEntity>> findByName(String name);
 
   Optional<UserEntity> findByEmail(String email);
+
+  Optional<UserEntity> findByEntityType(String entityType);
 }
