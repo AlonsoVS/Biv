@@ -36,8 +36,8 @@ public class TravelService {
 
   public Optional<Travel> update(Travel travelModified) {
     boolean travelFound = travelRepository.getTravel(travelModified.getId())
-            .map(userUpdated -> {
-              if (userUpdated.getUserId() == travelModified.getUserId()) return true;
+            .map(travelUpdated -> {
+              if (travelUpdated.getUserId() == travelModified.getUserId()) return true;
               return false;
             })
             .orElse(false);
@@ -49,6 +49,10 @@ public class TravelService {
 
   public List<Travel> getTravelsByUserUUIDId(String userId) {
     return travelRepository.getTravelsByUserUUIDid(UUID.fromString(userId));
+  }
+
+  public List<Travel> getTravelsByEntityType(String entityType) {
+    return travelRepository.getTravelsByEntityType(entityType);
   }
 
   public boolean delete(int travelId) {

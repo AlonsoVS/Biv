@@ -17,7 +17,11 @@ public class Travel {
 
   private boolean status;
 
+  private String entityType;
+
   private List<TravelLocation> locations;
+
+  private List<Note> notes;
 
   public int getId() {
     return id;
@@ -73,5 +77,21 @@ public class Travel {
 
   public void setLocations(List<TravelLocation> locations) {
     this.locations = locations;
+  }
+
+  public String getEntityType() {
+    return entityType;
+  }
+
+  public void setEntityType(String entityType) {
+    this.entityType = entityType;
+  }
+
+  public List<Note> getNotes() {
+    return notes;
+  }
+
+  public void setNotes(List<Note> notes) {
+    this.notes = notes;
   }
 }

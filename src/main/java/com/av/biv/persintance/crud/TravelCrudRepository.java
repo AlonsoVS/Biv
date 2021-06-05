@@ -10,4 +10,5 @@ public interface TravelCrudRepository extends CrudRepository<TravelEntity, Integ
 
   List<TravelEntity> findByUserId(Integer userId);
   List<TravelEntity> findByUserUUIDId(UUID userId);
+  List<TravelEntity> findByEntityType(String entityType);
 }

@@ -34,6 +34,11 @@ public class TravelController {
     return travelService.getTravelsByUserUUIDId(id);
   }
 
+  @GetMapping("/entity_type/{type}")
+  public List<Travel> getTravelsByEntityType(@PathVariable("type") String type) {
+    return travelService.getTravelsByEntityType(type);
+  }
+
   @PostMapping("/save")
   public Travel save(@RequestBody Travel travel) {
     return travelService.save(travel);

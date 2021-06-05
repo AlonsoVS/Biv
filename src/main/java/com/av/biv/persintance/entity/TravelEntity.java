@@ -1,12 +1,17 @@
 package com.av.biv.persintance.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name = "travels")
-public class TravelEntity {
+public class TravelEntity implements Serializable {
+  @PrePersist
+  protected void onCreate() {
+    setEntityType("travel");
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +29,12 @@ public class TravelEntity {
   private String description;
 
   private Boolean status;
+
+  @Column(name = "entity_type")
+  private String entityType;
+
+  @OneToMany(mappedBy = "travelTarget")
+  private List<NoteEntity> notes;
 
   @ManyToOne
   @JoinColumns({
@@ -96,5 +107,21 @@ public class TravelEntity {
 
   public void setLocations(List<TravelLocationEntity> locations) {
     this.locations = locations;
+  }
+
+  public String getEntityType() {
+    return entityType;
+  }
+
+  public void setEntityType(String entityType) {
+    this.entityType = entityType;
+  }
+
+  public List<NoteEntity> getNotes() {
+    return notes;
+  }
+
+  public void setNotes(List<NoteEntity> notes) {
+    this.notes = notes;
   }
 }

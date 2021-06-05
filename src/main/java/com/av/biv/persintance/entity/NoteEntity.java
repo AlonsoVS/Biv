@@ -29,6 +29,13 @@ public class NoteEntity {
   @JoinColumn(name = "user_id", referencedColumnName="id", insertable = false, updatable = false)
   private UserEntity user;
 
+  @ManyToOne
+  @JoinColumns({
+          @JoinColumn(name = "target_id", referencedColumnName="id", insertable = false, updatable = false),
+          @JoinColumn(name = "target_type", referencedColumnName="entity_type", insertable = false, updatable = false)
+  })
+  private TravelEntity travelTarget;
+
   public Integer getId() {
     return id;
   }
@@ -75,5 +82,13 @@ public class NoteEntity {
 
   public void setTargetType(String targetType) {
     this.targetType = targetType;
+  }
+
+  public TravelEntity getTravelTarget() {
+    return travelTarget;
+  }
+
+  public void setTravelTarget(TravelEntity travelTarget) {
+    this.travelTarget = travelTarget;
   }
 }

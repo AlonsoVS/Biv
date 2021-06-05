@@ -5,13 +5,17 @@ import com.av.biv.persintance.entity.TravelEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 
 import java.util.List;
 
 @Mapper(componentModel = "spring", uses = TravelLocationMapper.class)
 public interface TravelMapper {
 
-  @Mapping(source = "locations", target = "locations")
+  @Mappings({
+          @Mapping(source = "locations", target = "locations"),
+          @Mapping(source = "notes", target = "notes")
+  })
   Travel toTravel(TravelEntity travel);
 
   List<Travel> toTravels(List<TravelEntity> travels);

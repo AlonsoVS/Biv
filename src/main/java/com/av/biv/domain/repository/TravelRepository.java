@@ -13,6 +13,8 @@ public interface TravelRepository {
 
   List<Travel> getTravelsByUserUUIDid(UUID userId);
 
+  List<Travel> getTravelsByEntityType(String entityType);
+
   Optional<Travel> getTravel(int travelId);
 
   Travel save(Travel travel);
