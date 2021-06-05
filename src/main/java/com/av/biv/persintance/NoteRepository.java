@@ -44,6 +44,11 @@ public class NoteRepository implements com.av.biv.domain.repository.NoteReposito
   }
 
   @Override
+  public Optional<List<Note>> getNotesByTargetType(String entityType) {
+    return noteCrudRepository.findByTargetType(entityType).map(notes -> noteMapper.toNotes(notes));
+  }
+
+  @Override
   public Note save(Note note) {
     NoteEntity noteEntity = noteMapper.toNoteEntity(note);
     return noteMapper.toNote(noteCrudRepository.save(noteEntity));

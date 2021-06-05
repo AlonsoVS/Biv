@@ -8,6 +8,7 @@ public class Note {
   int targetId;
   String content;
   Date createDate;
+  String targetType;
 
   public int getId() {
     return id;
@@ -47,5 +48,13 @@ public class Note {
 
   public void setCreateDate(Date createDate) {
     this.createDate = createDate;
+  }
+
+  public String getTargetType() {
+    return targetType;
+  }
+
+  public void setTargetType(String targetType) {
+    this.targetType = targetType;
   }
 }

@@ -21,6 +21,9 @@ public class NoteEntity {
 
   @Column(name = "create_date")
     Date createDate;
+  
+  @Column(name = "target_type")
+  String targetType;
 
   public Integer getId() {
     return id;
@@ -60,5 +63,13 @@ public class NoteEntity {
 
   public void setCreateDate(Date createDate) {
     this.createDate = createDate;
+  }
+
+  public String getTargetType() {
+    return targetType;
+  }
+
+  public void setTargetType(String targetType) {
+    this.targetType = targetType;
   }
 }
