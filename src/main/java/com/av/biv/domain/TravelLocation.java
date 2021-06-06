@@ -1,6 +1,7 @@
 package com.av.biv.domain;
 
 import java.sql.Date;
+import java.util.List;
 
 public class TravelLocation {
 
@@ -13,6 +14,7 @@ public class TravelLocation {
   private String address;
   private boolean status;
   private String entityType;
+  private List<Note> notes;
 
   public int getId() {
     return id;
@@ -84,5 +86,13 @@ public class TravelLocation {
 
   public void setEntityType(String entityType) {
     this.entityType = entityType;
+  }
+
+  public List<Note> getNotes() {
+    return notes;
+  }
+
+  public void setNotes(List<Note> notes) {
+    this.notes = notes;
   }
 }

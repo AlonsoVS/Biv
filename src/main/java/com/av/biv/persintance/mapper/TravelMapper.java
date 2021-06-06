@@ -9,7 +9,7 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = TravelLocationMapper.class)
+@Mapper(componentModel = "spring", uses = {TravelLocationMapper.class, NoteMapper.class})
 public interface TravelMapper {
 
   @Mappings({

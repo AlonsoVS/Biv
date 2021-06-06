@@ -1,11 +1,17 @@
 package com.av.biv.persintance.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "travel_locations")
-public class TravelLocationEntity {
+public class TravelLocationEntity implements Serializable {
+  @PrePersist
+  protected void onCreate() {
+    setEntityType("location");
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +42,9 @@ public class TravelLocationEntity {
   @ManyToOne
   @JoinColumn(name = "travel_id", insertable = false, updatable = false)
   private TravelEntity travel;
+
+  @OneToMany(mappedBy = "locationTarget")
+  private List<NoteEntity> notes;
 
   public int getId() {
     return id;
@@ -115,5 +124,13 @@ public class TravelLocationEntity {
 
   public void setEntityType(String entityType) {
     this.entityType = entityType;
+  }
+
+  public List<NoteEntity> getNotes() {
+    return notes;
+  }
+
+  public void setNotes(List<NoteEntity> notes) {
+    this.notes = notes;
   }
 }

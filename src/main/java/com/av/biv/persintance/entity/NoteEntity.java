@@ -36,6 +36,13 @@ public class NoteEntity {
   })
   private TravelEntity travelTarget;
 
+  @ManyToOne
+  @JoinColumns({
+          @JoinColumn(name = "target_id", referencedColumnName="id", insertable = false, updatable = false),
+          @JoinColumn(name = "target_type", referencedColumnName="entity_type", insertable = false, updatable = false)
+  })
+  private TravelLocationEntity locationTarget;
+
   public Integer getId() {
     return id;
   }
@@ -84,11 +91,27 @@ public class NoteEntity {
     this.targetType = targetType;
   }
 
+  public UserEntity getUser() {
+    return user;
+  }
+
+  public void setUser(UserEntity user) {
+    this.user = user;
+  }
+
   public TravelEntity getTravelTarget() {
     return travelTarget;
   }
 
   public void setTravelTarget(TravelEntity travelTarget) {
     this.travelTarget = travelTarget;
+  }
+
+  public TravelLocationEntity getLocationTarget() {
+    return locationTarget;
+  }
+
+  public void setLocationTarget(TravelLocationEntity locationTarget) {
+    this.locationTarget = locationTarget;
   }
 }
