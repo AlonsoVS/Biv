@@ -82,7 +82,7 @@ public class TravelController {
   @PostMapping("/save")
   @ApiOperation("Save a Travel")
   @ApiResponse(code = 201, message = "Travel Created")
-  public ResponseEntity<Travel> save(@ApiParam(value = "Travel to Save Json Object to Save", required = true,
+  public ResponseEntity<Travel> save(@ApiParam(value = "Travel to Save Json Object", required = true,
                                                 example= "{" +
                                                             "\"description\": \"string\"," +
                                                             "\"generalLocation\": \"string\"," +
