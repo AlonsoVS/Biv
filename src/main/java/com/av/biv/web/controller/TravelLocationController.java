@@ -3,6 +3,8 @@ package com.av.biv.web.controller;
 import com.av.biv.domain.TravelLocation;
 import com.av.biv.domain.service.TravelLocationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
@@ -16,70 +18,88 @@ public class TravelLocationController {
   private TravelLocationService locationService;
 
   @GetMapping("/all")
-  public List<TravelLocation> getAll() {
-    return locationService.getAll();
+  public ResponseEntity<List<TravelLocation>> getAll() {
+    return new ResponseEntity<>(locationService.getAll(), HttpStatus.OK);
   }
 
   @GetMapping("/user/{id}")
-  public Optional<List<TravelLocation>> getUserLocations(@PathVariable("id") int userId) {
-    return locationService.getUserLocations(userId);
+  public ResponseEntity<List<TravelLocation>> getUserLocations(@PathVariable("id") int userId) {
+    return locationService.getUserLocations(userId)
+            .map(locations -> new ResponseEntity<>(locations, HttpStatus.OK))
+            .orElse(new ResponseEntity(HttpStatus.BAD_REQUEST));
   }
 
   @GetMapping("/travel/{id}")
-  public Optional<List<TravelLocation>> getTravelLocations(@PathVariable("id") Integer travelId) {
-    return locationService.getTravelLocations(travelId);
+  public ResponseEntity<List<TravelLocation>> getTravelLocations(@PathVariable("id") Integer travelId) {
+    return locationService.getTravelLocations(travelId)
+            .map(locations -> new ResponseEntity<>(locations, HttpStatus.OK))
+            .orElse(new ResponseEntity(HttpStatus.BAD_REQUEST));
   }
 
   @GetMapping("/id/{id}")
-  public Optional<TravelLocation> getLocation(@PathVariable("id") int locationId) {
-    return locationService.getLocation(locationId);
+  public ResponseEntity<TravelLocation> getLocation(@PathVariable("id") int locationId) {
+    return locationService.getLocation(locationId)
+            .map(location -> new ResponseEntity<>(location, HttpStatus.OK))
+            .orElse(new ResponseEntity(HttpStatus.NOT_FOUND));
   }
 
   @GetMapping("/status/actived")
-  public Optional<List<TravelLocation>> getActived() {
-    return locationService.getActived();
+  public ResponseEntity<List<TravelLocation>> getActived() {
+    return locationService.getActived()
+            .map(locations -> new ResponseEntity<>(locations, HttpStatus.OK))
+            .orElse(new ResponseEntity(HttpStatus.BAD_REQUEST));
   }
 
   @GetMapping("/status/disabled")
-  public Optional<List<TravelLocation>> getDisabled() {
-    return locationService.getDisabled();
+  public ResponseEntity<List<TravelLocation>> getDisabled() {
+    return locationService.getDisabled()
+            .map(locations -> new ResponseEntity<>(locations, HttpStatus.OK))
+            .orElse(new ResponseEntity(HttpStatus.BAD_REQUEST));
   }
 
   @GetMapping("/entry_date/{date}")
-  public Optional<TravelLocation> getByEntryDate(@PathVariable("date") Date entryDate) {
-    return locationService.getByEntryDate(entryDate);
+  public ResponseEntity<TravelLocation> getByEntryDate(@PathVariable("date") Date entryDate) {
+    return locationService.getByEntryDate(entryDate)
+            .map(location -> new ResponseEntity<>(location, HttpStatus.OK))
+            .orElse(new ResponseEntity(HttpStatus.NOT_FOUND));
   }
 
   @GetMapping("/departure_date")
-  public Optional<TravelLocation> getByDepartureDate(@PathVariable("date") Date departureDate) {
-    return locationService.getByDepartureDate(departureDate);
+  public ResponseEntity<TravelLocation> getByDepartureDate(@PathVariable("date") Date departureDate) {
+    return locationService.getByDepartureDate(departureDate)
+            .map(location -> new ResponseEntity<>(location, HttpStatus.OK))
+            .orElse(new ResponseEntity(HttpStatus.NOT_FOUND));
   }
 
   @GetMapping("/address/{address}")
-  public Optional<TravelLocation> getByAddress(@PathVariable("address") String address) {
-    return locationService.getByAddress(address);
+  public ResponseEntity<TravelLocation> getByAddress(@PathVariable("address") String address) {
+    return locationService.getByAddress(address)
+            .map(location -> new ResponseEntity<>(location, HttpStatus.OK))
+            .orElse(new ResponseEntity(HttpStatus.NOT_FOUND));
   }
 
   @GetMapping("/entity_type/{type}")
-  public Optional<List<TravelLocation>> getByEntityType(@PathVariable("type") String type) {
-    return locationService.getByEntityType(type);
+  public ResponseEntity<List<TravelLocation>> getByEntityType(@PathVariable("type") String type) {
+    return locationService.getByEntityType(type)
+            .map(locations -> new ResponseEntity<>(locations, HttpStatus.OK))
+            .orElse(new ResponseEntity(HttpStatus.BAD_REQUEST));
   }
 
   @PostMapping("/save")
-  public TravelLocation save(@RequestBody TravelLocation travelLocation) {
-    return locationService.save(travelLocation);
+  public ResponseEntity<TravelLocation> save(@RequestBody TravelLocation travelLocation) {
+    return new ResponseEntity<>(locationService.save(travelLocation), HttpStatus.CREATED);
   }
 
   @PostMapping("/update")
-  public Optional<TravelLocation> update(@RequestBody TravelLocation locationModified) {
-    return locationService.update(locationModified);
-  };
+  public ResponseEntity<TravelLocation> update(@RequestBody TravelLocation locationModified) {
+    return locationService.update(locationModified)
+            .map(location -> new ResponseEntity<>(location, HttpStatus.OK))
+            .orElse(new ResponseEntity(HttpStatus.FORBIDDEN));
+  }
 
   @PostMapping("/delete/{id}")
-  public boolean delete(@PathVariable("id") int locationId) {
-    return getLocation(locationId).map(location -> {
-      locationService.delete(locationId);
-      return true;
-    }).orElse(false);
+  public ResponseEntity delete(@PathVariable("id") int locationId) {
+    if (locationService.delete(locationId)) return new ResponseEntity<>(HttpStatus.OK);
+    return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
   }
 }
