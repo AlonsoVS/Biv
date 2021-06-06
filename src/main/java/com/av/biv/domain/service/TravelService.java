@@ -22,7 +22,7 @@ public class TravelService {
     return travelRepository.getAll();
   };
 
-  public List<Travel> getUserTravels(Integer userId) {
+  public Optional<List<Travel>> getUserTravels(Integer userId) {
     return travelRepository.getUserTravels(userId);
   }
 
@@ -47,11 +47,11 @@ public class TravelService {
     return Optional.empty();
   }
 
-  public List<Travel> getTravelsByUserUUIDId(String userId) {
+  public Optional<List<Travel>> getTravelsByUserUUIDId(String userId) {
     return travelRepository.getTravelsByUserUUIDid(UUID.fromString(userId));
   }
 
-  public List<Travel> getTravelsByEntityType(String entityType) {
+  public Optional<List<Travel>> getTravelsByEntityType(String entityType) {
     return travelRepository.getTravelsByEntityType(entityType);
   }
 

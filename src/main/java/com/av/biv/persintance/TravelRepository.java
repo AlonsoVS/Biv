@@ -25,19 +25,21 @@ public class TravelRepository implements com.av.biv.domain.repository.TravelRepo
   }
 
   @Override
-  public List<Travel> getUserTravels(int userId) {
-    List<TravelEntity> userTravels = travelCrudRepository.findByUserId(userId);
-    return travelMapper.toTravels(userTravels);
+  public Optional<List<Travel>> getUserTravels(int userId) {
+    return travelCrudRepository.findByUserId(userId)
+            .map(travels -> travelMapper.toTravels(travels));
   }
 
   @Override
-  public List<Travel> getTravelsByUserUUIDid(UUID userId) {
-    return travelMapper.toTravels(travelCrudRepository.findByUserUUIDId(userId));
+  public Optional<List<Travel>> getTravelsByUserUUIDid(UUID userId) {
+    return travelCrudRepository.findByUserUUIDId(userId)
+            .map(travels -> travelMapper.toTravels(travels));
   }
 
   @Override
-  public List<Travel> getTravelsByEntityType(String entityType) {
-    return travelMapper.toTravels(travelCrudRepository.findByEntityType(entityType));
+  public Optional<List<Travel>> getTravelsByEntityType(String entityType) {
+    return travelCrudRepository.findByEntityType(entityType)
+            .map(travels -> travelMapper.toTravels(travels));
   }
 
   @Override

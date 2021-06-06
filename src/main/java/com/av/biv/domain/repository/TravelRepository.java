@@ -9,11 +9,11 @@ import java.util.UUID;
 public interface TravelRepository {
   List<Travel> getAll();
 
-  List<Travel> getUserTravels(int userId);
+  Optional<List<Travel>> getUserTravels(int userId);
 
-  List<Travel> getTravelsByUserUUIDid(UUID userId);
+  Optional<List<Travel>> getTravelsByUserUUIDid(UUID userId);
 
-  List<Travel> getTravelsByEntityType(String entityType);
+  Optional<List<Travel>> getTravelsByEntityType(String entityType);
 
   Optional<Travel> getTravel(int travelId);
 
