@@ -80,7 +80,7 @@ public class UserController {
   @PostMapping("/save")
   @ApiOperation("Save a User")
   @ApiResponse(code = 201, message = "User Created")
-  public ResponseEntity<User> save(@ApiParam(value = "User Json Object", required = true,
+  public ResponseEntity<User> save(@ApiParam(value = "User to Save Json Object", required = true,
                                               example= "{" +
                                                       "\"birthDate\": \"string\"," +
                                                       "\"email\": \"string\"," +
@@ -96,7 +96,7 @@ public class UserController {
   @PostMapping("/update")
   @ApiOperation("Edit a User")
   @ApiResponse(code = 304, message = "User Not Modified")
-  public ResponseEntity<User> update(@ApiParam(value = "User Json Object", required = true,
+  public ResponseEntity<User> update(@ApiParam(value = "User Edited Json Object", required = true,
                                                 example= "{" +
                                                         "\"birthDate\": \"string\"," +
                                                         "\"id\": 0," +
@@ -117,7 +117,7 @@ public class UserController {
           @ApiResponse(code = 200, message = "OK"),
           @ApiResponse(code = 403, message = "Delete User Forbidden")
   })
-  public ResponseEntity delete(@PathVariable("id") int userId) {
+  public ResponseEntity delete(@ApiParam(value = "User Id to delete", required = true, example = "7") @PathVariable("id") int userId) {
     if (userService.delete(userId)) {
       return new ResponseEntity<>(HttpStatus.OK);
     } else {
