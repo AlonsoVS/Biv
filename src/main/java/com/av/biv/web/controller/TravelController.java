@@ -91,7 +91,7 @@ public class TravelController {
                                                             "\"userUUIDId\": string" +
                                                           "}")
                                        @RequestBody Travel travel) {
-    return new ResponseEntity<>(travelService.save(travel), HttpStatus.OK);
+    return new ResponseEntity<>(travelService.save(travel), HttpStatus.CREATED);
   }
 
   @PostMapping("/update")

@@ -93,7 +93,7 @@ public class NoteController {
 
   @PostMapping("/save")
   @ApiOperation("Save a Note")
-  @ApiResponse(code = 200, message = "OK")
+  @ApiResponse(code = 200, message = "Note Created")
   public ResponseEntity<Note> save(@ApiParam(value = "Note to Save Json Object", required = true,
                                               example= "{" +
                                                           "\"content\": \"string\"," +
@@ -102,7 +102,7 @@ public class NoteController {
                                                           "\"userId\": 0" +
                                                         "}")
                                      @RequestBody Note note) {
-    return new ResponseEntity<>(noteService.save(note), HttpStatus.OK);
+    return new ResponseEntity<>(noteService.save(note), HttpStatus.CREATED);
   }
 
   @PostMapping("/edit")
