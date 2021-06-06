@@ -26,7 +26,7 @@ public class TravelController {
     return new ResponseEntity<>(travelService.getAll(), HttpStatus.OK);
   }
 
-  @GetMapping("/{id}")
+  @GetMapping("/id/{id}")
   @ApiOperation("Search Travel by Id")
   @ApiResponses({
           @ApiResponse(code = 200, message = "OK"),
@@ -52,7 +52,7 @@ public class TravelController {
             .orElse(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
   }
 
-  @GetMapping("/uuid_id/{id}")
+  @GetMapping("/user/uuid_id/{id}")
   @ApiOperation("Search Travels of User by User UUID")
   @ApiResponses({
           @ApiResponse(code = 200, message = "OK"),
@@ -66,7 +66,7 @@ public class TravelController {
             .orElse(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
   }
 
-  @GetMapping("/entity_type/{type}")
+  @GetMapping("/entity-type/{type}")
   @ApiOperation("Search Travels by Entity Type")
   @ApiResponses({
           @ApiResponse(code = 200, message = "OK"),

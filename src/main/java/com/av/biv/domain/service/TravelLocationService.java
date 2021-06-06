@@ -36,7 +36,7 @@ public class TravelLocationService {
     return locationRepository.getLocation(locationId);
   }
 
-  public Optional<List<TravelLocation>> getActived() {
+  public Optional<List<TravelLocation>> getActive() {
     return locationRepository.getByStatus(true);
   }
 

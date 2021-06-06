@@ -66,14 +66,14 @@ public class TravelLocationController {
             .orElse(new ResponseEntity(HttpStatus.BAD_REQUEST));
   }
 
-  @GetMapping("/status/actived")
+  @GetMapping("/status/active")
   @ApiOperation("Search Active Locations")
   @ApiResponses({
           @ApiResponse(code = 200, message = "OK"),
           @ApiResponse(code = 400, message = "Active Bad Request")
   })
-  public ResponseEntity<List<TravelLocation>> getActived() {
-    return locationService.getActived()
+  public ResponseEntity<List<TravelLocation>> getActive() {
+    return locationService.getActive()
             .map(locations -> new ResponseEntity<>(locations, HttpStatus.OK))
             .orElse(new ResponseEntity(HttpStatus.BAD_REQUEST));
   }
@@ -90,7 +90,7 @@ public class TravelLocationController {
             .orElse(new ResponseEntity(HttpStatus.BAD_REQUEST));
   }
 
-  @GetMapping("/entry_date/{date}")
+  @GetMapping("/entry-date/{date}")
   @ApiOperation("Search Location by Entry Date")
   @ApiResponses({
           @ApiResponse(code = 200, message = "OK"),
@@ -103,7 +103,7 @@ public class TravelLocationController {
             .orElse(new ResponseEntity(HttpStatus.NOT_FOUND));
   }
 
-  @GetMapping("/departure_date")
+  @GetMapping("/departure-date")
   @ApiOperation("Search Location by Departure Date")
   @ApiResponses({
           @ApiResponse(code = 200, message = "OK"),
@@ -129,7 +129,7 @@ public class TravelLocationController {
             .orElse(new ResponseEntity(HttpStatus.NOT_FOUND));
   }
 
-  @GetMapping("/entity_type/{type}")
+  @GetMapping("/entity-type/{type}")
   @ApiOperation("Search Locations by Entity Type")
   @ApiResponses({
           @ApiResponse(code = 200, message = "OK"),

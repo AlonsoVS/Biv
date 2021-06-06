@@ -27,7 +27,7 @@ public class NoteController {
     return new ResponseEntity<>(noteService.getAllNotes(), HttpStatus.OK);
   }
 
-  @GetMapping("/{id}")
+  @GetMapping("/id/{id}")
   @ApiOperation("Search Note by Id")
   @ApiResponses({
           @ApiResponse(code = 200, message = "OK"),
