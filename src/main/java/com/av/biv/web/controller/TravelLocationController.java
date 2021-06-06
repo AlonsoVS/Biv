@@ -100,6 +100,6 @@ public class TravelLocationController {
   @PostMapping("/delete/{id}")
   public ResponseEntity delete(@PathVariable("id") int locationId) {
     if (locationService.delete(locationId)) return new ResponseEntity<>(HttpStatus.OK);
-    return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    return new ResponseEntity<>(HttpStatus.FORBIDDEN);
   }
 }
